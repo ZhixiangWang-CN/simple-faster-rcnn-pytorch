@@ -1,0 +1,21 @@
+--2020-12-31 19:24:55--  https://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e=download
+Resolving doc-0o-84-docs.googleusercontent.com (doc-0o-84-docs.googleusercontent.com)... 172.217.19.193, 2a00:1450:400e:808::2001
+Connecting to doc-0o-84-docs.googleusercontent.com (doc-0o-84-docs.googleusercontent.com)|172.217.19.193|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://docs.google.com/nonceSigner?nonce=cr5aofmta8bk6&continue=https://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e%3Ddownload&hash=d42qg4tmctb6otirc1ka6tcdmdmld416 [following]
+--2020-12-31 19:24:55--  https://docs.google.com/nonceSigner?nonce=cr5aofmta8bk6&continue=https://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e%3Ddownload&hash=d42qg4tmctb6otirc1ka6tcdmdmld416
+Resolving docs.google.com (docs.google.com)... 216.58.214.14, 2a00:1450:400e:807::200e
+Connecting to docs.google.com (docs.google.com)|216.58.214.14|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&continue=https://docs.google.com/nonceSigner?nonce%3Dcr5aofmta8bk6%26continue%3Dhttps://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e%253Ddownload%26hash%3Dd42qg4tmctb6otirc1ka6tcdmdmld416&followup=https://docs.google.com/nonceSigner?nonce%3Dcr5aofmta8bk6%26continue%3Dhttps://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e%253Ddownload%26hash%3Dd42qg4tmctb6otirc1ka6tcdmdmld416 [following]
+--2020-12-31 19:24:56--  https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&continue=https://docs.google.com/nonceSigner?nonce%3Dcr5aofmta8bk6%26continue%3Dhttps://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e%253Ddownload%26hash%3Dd42qg4tmctb6otirc1ka6tcdmdmld416&followup=https://docs.google.com/nonceSigner?nonce%3Dcr5aofmta8bk6%26continue%3Dhttps://doc-0o-84-docs.googleusercontent.com/docs/securesc/1shrhtoimmio1vpasv5dp71cb9o0nigj/4hfmjuose9rs38eprdcjf9sb6tirft8b/1609442850000/00656103321542910414/07413532228966273459/1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e%253Ddownload%26hash%3Dd42qg4tmctb6otirc1ka6tcdmdmld416
+Resolving accounts.google.com (accounts.google.com)... 216.58.214.13, 2a00:1450:400e:800::200d
+Connecting to accounts.google.com (accounts.google.com)|216.58.214.13|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e=download’
+
+1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e=down     [<=>                                                                               ]       0  --.-KB/s               1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e=down     [ <=>                                                                              ]  63.67K  --.-KB/s    in 0.007s  
+
+2020-12-31 19:24:56 (8.94 MB/s) - ‘1loIh6AYygDALfID1_Ou2z6AwQB1MEjOY?e=download’ saved [65197]
+

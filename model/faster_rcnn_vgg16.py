@@ -62,6 +62,7 @@ class FasterRCNNVGG16(FasterRCNN):
                  ):
                  
         extractor, classifier = decom_vgg16()
+        
 
         rpn = RegionProposalNetwork(
             512, 512,

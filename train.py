@@ -74,7 +74,12 @@ def train(**kwargs):
     for epoch in range(opt.epoch):
         trainer.reset_meters()
         for ii, (img, bbox_, label_, scale) in tqdm(enumerate(dataloader)):
+            # print("img",img.shape)
+            print("bbox_",bbox_)
+            print("bbox_ shape",bbox_.shape)
+            print("label_",label_)
             scale = at.scalar(scale)
+            # print("scale after ",scale)
             img, bbox, label = img.cuda().float(), bbox_.cuda(), label_.cuda()
             trainer.train_step(img, bbox, label, scale)
 
@@ -128,3 +133,4 @@ if __name__ == '__main__':
     import fire
 
     fire.Fire()
+

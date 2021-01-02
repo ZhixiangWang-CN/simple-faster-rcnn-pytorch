@@ -4,7 +4,8 @@ from collections import namedtuple
 import time
 from torch.nn import functional as F
 from model.utils.creator_tool import AnchorTargetCreator, ProposalTargetCreator
-
+from model.S4ND import S4ND
+from model.micResNet import MiCTResNet
 from torch import nn
 import torch as t
 from utils import array_tool as at
@@ -57,6 +58,29 @@ class FasterRCNNTrainer(nn.Module):
         # visdom wrapper
         self.vis = Visualizer(env=opt.env)
 
+        self.micResNet_model = MiCTResNet()
+
+
+
+        growth_rate=[16,16,16,32,64]
+        # 5 个Dense Block内的卷积层数量
+        block_conv_num = [8,8,16,32,32]
+
+        
+        self.S4ND_model= S4ND(growth_rate,block_conv_num)
+        self.block1 = nn.Sequential(
+            nn.Conv2d(3, 32, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(0.2),
+            nn.Conv2d(32, 32, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(0.2),
+            nn.Conv2d(32, 128, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(128),
+            nn.LeakyReLU(0.2),
+            nn.Conv2d(128, 512, kernel_size=3, stride=2, padding=1),
+            nn.LeakyReLU(0.2),
+        )
         # indicators for training status
         self.rpn_cm = ConfusionMeter(2)
         self.roi_cm = ConfusionMeter(21)
@@ -88,23 +112,36 @@ class FasterRCNNTrainer(nn.Module):
             namedtuple of 5 losses
         """
         n = bboxes.shape[0]
-        if n != 1:
-            raise ValueError('Currently only batch size 1 is supported.')
+        # if n != 1:
+        #     raise ValueError('Currently only batch size 1 is supported.')
 
         _, _, H, W = imgs.shape
         img_size = (H, W)
 
-        features = self.faster_rcnn.extractor(imgs)
+        #================================micResNet
+        features = self.micResNet_model(imgs)
+        #================================S4ND
+        # imgs_in = imgs.unsqueeze(1)
+        # # print("======",imgs.shape)
+        # features = self.S4ND_model(imgs_in)
+        # # features = self.block1(imgs)
+        # # features = self.faster_rcnn.extractor(imgs)
+        # # print("features",features.shape)
 
+        #======================================================
+        print("\n================")
+        print("features",features.shape)
         rpn_locs, rpn_scores, rois, roi_indices, anchor = \
             self.faster_rcnn.rpn(features, img_size, scale)
-
+        # print("rpn_locs, rpn_scores, rois, roi_indices, anchor",rpn_locs, rpn_scores, rois, roi_indices, anchor)
         # Since batch size is one, convert variables to singular form
         bbox = bboxes[0]
         label = labels[0]
         rpn_score = rpn_scores[0]
         rpn_loc = rpn_locs[0]
         roi = rois
+        print("\n================")
+        print("roi",roi.shape)
 
         # Sample RoIs and forward
         # it's fine to break the computation graph of rois, 
@@ -246,6 +283,8 @@ def _smooth_l1_loss(x, t, in_weight, sigma):
     return y.sum()
 
 
+
+
 def _fast_rcnn_loc_loss(pred_loc, gt_loc, gt_label, sigma):
     in_weight = t.zeros(gt_loc.shape).cuda()
     # Localization loss is calculated only for positive rois.
@@ -256,3 +295,4 @@ def _fast_rcnn_loc_loss(pred_loc, gt_loc, gt_label, sigma):
     # Normalize by total number of negtive and positive rois.
     loc_loss /= ((gt_label >= 0).sum().float()) # ignore gt_label==-1 for rpn_loss
     return loc_loss
+

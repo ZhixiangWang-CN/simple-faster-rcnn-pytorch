@@ -7,10 +7,10 @@ from pprint import pprint
 
 class Config:
     # data
-    voc_data_dir = '/workspace/data/simple-faster-rcnn-pytorch/VOCdevkit/VOCdevkit/VOC2007/'
-    min_size = 600  # image resize
-    max_size = 1000 # image resize
-    num_workers = 8
+    voc_data_dir = '/workspace/data/lungnrrd/erased'
+    min_size = 512  # image resize
+    max_size = 512 # image resize
+    num_workers = 10
     test_num_workers = 8
 
     # sigma for l1_smooth_loss
